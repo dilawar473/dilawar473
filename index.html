@@ -1,0 +1,684 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#00ffe5">
+<title>Career Roadmap 2025â€“2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#030810;--card:#080f1e;--card2:#0c1828;
+  --cyan:#00ffe5;--violet:#7c3aed;--pink:#ff2d6b;--gold:#ffd700;
+  --green:#00ff88;--sky:#00b4d8;--orange:#ff6b35;--white:#eef2ff;--dim:#4a5568;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Rajdhani',sans-serif;overflow-x:hidden;cursor:none}
+body.touch-device{cursor:auto}
+.cursor{position:fixed;width:10px;height:10px;background:var(--cyan);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 18px rgba(0,255,229,.6);transition:transform .08s ease}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(0,255,229,.3);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .13s ease}
+#bgCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.wrap{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:0 24px}
+
+/* â”€â”€ HEADER â”€â”€ */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(3,8,16,.75);
+  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
+  border-bottom:1px solid rgba(0,255,229,.18);
+  height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;
+  box-shadow:0 4px 40px rgba(0,0,0,.4);
+}
+.logo{font-family:'Orbitron',sans-serif;font-size:.95rem;font-weight:900;background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.1em;white-space:nowrap}
+nav{display:flex;gap:28px}
+nav a{font-size:.78rem;font-weight:600;color:rgba(238,242,255,.6);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .3s,text-shadow .3s;white-space:nowrap}
+nav a:hover{color:var(--cyan);text-shadow:0 0 16px rgba(0,255,229,.5)}
+.hprog{display:flex;align-items:center;gap:10px;background:rgba(0,255,229,.07);border:1px solid rgba(0,255,229,.2);border-radius:50px;padding:7px 18px}
+.hplabel{font-size:.65rem;font-weight:700;letter-spacing:.1em;color:var(--cyan);white-space:nowrap}
+.hptrack{width:90px;height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
+.hpfill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));border-radius:2px;transition:width .8s ease;box-shadow:0 0 8px var(--cyan);width:0}
+#hpct{font-size:.78rem;font-weight:700;color:var(--cyan);font-family:'JetBrains Mono',monospace;min-width:30px}
+
+/* hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--cyan);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(3,8,20,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,255,229,.15);z-index:199;padding:16px 0;flex-direction:column}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:14px 36px;font-size:.9rem;font-weight:600;color:rgba(238,242,255,.6);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s,background .2s;border-left:3px solid transparent}
+.mobile-menu a:hover{color:var(--cyan);background:rgba(0,255,229,.04);border-left-color:var(--cyan)}
+
+/* â”€â”€ HERO â”€â”€ */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 20px 60px;position:relative;overflow:hidden}
+.hring{position:absolute;border-radius:50%;border:1px solid rgba(0,255,229,.05);pointer-events:none;top:50%;left:50%;animation:spin linear infinite}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.badge{display:inline-flex;align-items:center;gap:9px;background:rgba(0,255,229,.06);border:1px solid rgba(0,255,229,.22);border-radius:50px;padding:7px 22px;font-size:.7rem;font-weight:700;letter-spacing:.14em;color:var(--cyan);text-transform:uppercase;margin-bottom:28px;animation:fup .8s ease both}
+.bdot{width:7px;height:7px;background:var(--cyan);border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 10px var(--cyan);flex-shrink:0}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.7);opacity:.3}}
+h1{font-family:'Orbitron',sans-serif;font-size:clamp(2.8rem,8vw,7rem);font-weight:900;line-height:.9;letter-spacing:-.02em;animation:fup .9s ease both .1s}
+.t1{display:block;background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,.3));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.t2{display:block;background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 40px rgba(0,255,229,.35))}
+.hsub{margin-top:22px;font-size:clamp(.9rem,2vw,1.15rem);font-weight:500;color:rgba(238,242,255,.38);letter-spacing:.05em;animation:fup .9s ease both .2s;line-height:1.6}
+.hquote{margin:28px auto 0;max-width:640px;font-size:clamp(.88rem,1.8vw,1rem);font-style:italic;color:rgba(255,215,0,.8);border-left:3px solid var(--gold);padding-left:18px;text-align:left;line-height:1.8;animation:fup .9s ease both .3s}
+
+/* STATS */
+.stats{margin-top:48px;display:flex;flex-wrap:wrap;background:rgba(8,15,30,.8);border:1px solid rgba(0,255,229,.1);border-radius:16px;overflow:hidden;animation:fup .9s ease both .4s;backdrop-filter:blur(10px);width:100%}
+.stat{flex:1;min-width:120px;padding:22px 14px;text-align:center;position:relative;transition:background .3s}
+.stat:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:rgba(255,255,255,.06)}
+.stat:hover{background:rgba(0,255,229,.04)}
+.sv{font-family:'Orbitron',sans-serif;font-size:clamp(1rem,2.5vw,1.4rem);font-weight:900;background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block}
+.sl{font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(238,242,255,.28);margin-top:4px;display:block}
+
+/* PROGRESS RING */
+.pring-sec{margin-top:48px;display:flex;flex-direction:column;align-items:center;gap:10px;animation:fup .9s ease both .5s}
+.pring-wrap{position:relative;display:inline-block}
+.pring-svg{transform:rotate(-90deg)}
+.rtrack{fill:none;stroke:rgba(255,255,255,.05);stroke-width:9}
+.rfill{fill:none;stroke-width:9;stroke-linecap:round;stroke:url(#rg);transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1);filter:drop-shadow(0 0 8px rgba(0,255,229,.4))}
+.rcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.rpct{font-family:'Orbitron',sans-serif;font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.rlbl{font-size:.58rem;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+.sarr{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--dim);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;margin-top:44px;animation:fup .9s ease both .6s}
+.sarrow{width:20px;height:20px;border-right:2px solid var(--cyan);border-bottom:2px solid var(--cyan);transform:rotate(45deg);animation:boun 1.5s ease infinite}
+@keyframes boun{0%,100%{transform:rotate(45deg)}50%{transform:rotate(45deg) translateY(7px)}}
+
+/* â”€â”€ SECTION HEADER â”€â”€ */
+.sechdr{text-align:center;margin:70px 0 44px}
+.seceye{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:12px}
+.seceye::before{content:'';flex:1;max-width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--cyan))}
+.seceye::after{content:'';flex:1;max-width:70px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent)}
+.sectitle{font-family:'Orbitron',sans-serif;font-size:clamp(1.4rem,3vw,2.4rem);font-weight:900}
+
+/* â”€â”€ PHASES GRID (2 columns desktop, 1 mobile) â”€â”€ */
+.phases-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+/* PHASE CARD */
+.phcard{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:20px;
+  padding:24px;
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateY(32px);
+  transition:opacity .6s ease,transform .6s ease,border-color .3s,box-shadow .3s;
+}
+.phcard.vis{opacity:1;transform:translateY(0)}
+.phcard:hover{border-color:var(--ac);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 28px rgba(var(--ar),.12);transform:translateY(-4px)!important}
+.phcard.done{border-color:var(--ac);background:linear-gradient(135deg,var(--card),rgba(var(--ar),.05))}
+.phcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--ac),transparent);opacity:0;transition:opacity .3s}
+.phcard:hover::before,.phcard.done::before{opacity:1}
+.phcard::after{content:'';position:absolute;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(var(--ar),.07),transparent 70%);top:-50px;right:-50px;pointer-events:none;opacity:0;transition:opacity .3s}
+.phcard:hover::after{opacity:1}
+
+/* top strip */
+.phcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.ph-num-badge{font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:700;letter-spacing:.18em;color:var(--ac);opacity:.7;display:flex;align-items:center;gap:8px}
+.ph-num-circle{width:32px;height:32px;border-radius:50%;background:rgba(var(--ar),.12);border:1.5px solid rgba(var(--ar),.35);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:900;color:var(--ac);flex-shrink:0;transition:all .3s}
+.phcard.done .ph-num-circle{background:var(--ac);color:#000;box-shadow:0 0 14px var(--ac)}
+.phchk{appearance:none;-webkit-appearance:none;width:24px;height:24px;border-radius:7px;border:2px solid rgba(var(--ar),.5);background:transparent;cursor:pointer;position:relative;flex-shrink:0;transition:all .3s}
+.phchk:checked{background:var(--ac);border-color:var(--ac);box-shadow:0 0 14px var(--ac)}
+.phchk:checked::after{content:'âœ“';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:900;color:#000;line-height:1}
+.phchk:hover{border-color:var(--ac);box-shadow:0 0 10px var(--ac)}
+.ctitle{font-family:'Orbitron',sans-serif;font-size:clamp(.85rem,1.8vw,1rem);font-weight:700;margin-bottom:12px;line-height:1.25;color:var(--white)}
+.cmeta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.mbadge{font-size:.6rem;font-weight:700;letter-spacing:.06em;padding:4px 11px;border-radius:50px;background:rgba(var(--ar),.1);border:1px solid rgba(var(--ar),.28);color:var(--ac);text-transform:uppercase;white-space:nowrap}
+.dbadge{background:rgba(0,255,136,.1);border-color:rgba(0,255,136,.35);color:var(--green)}
+
+/* ITEMS */
+.igrid{display:grid;grid-template-columns:1fr 1fr;gap:7px 6px}
+.irow{display:flex;align-items:center;gap:8px;font-size:clamp(.72rem,1.5vw,.82rem);font-weight:500;color:rgba(238,242,255,.55);transition:color .3s;cursor:pointer;line-height:1.3}
+.irow:hover{color:var(--white)}
+.irow.idone .itxt{text-decoration:line-through;opacity:.35}
+.ichk{appearance:none;-webkit-appearance:none;width:14px;height:14px;border-radius:4px;border:1.5px solid rgba(var(--ar),.38);background:transparent;cursor:pointer;position:relative;flex-shrink:0;transition:all .25s}
+.ichk:checked{background:var(--ac);border-color:var(--ac)}
+.ichk:checked::after{content:'âœ“';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:900;color:#000}
+.ichk:hover{border-color:var(--ac);box-shadow:0 0 6px var(--ac)}
+.itxt{line-height:1.3}
+
+/* PHASE COLOR VARS */
+.p01{--ac:#00ffe5;--ar:0,255,229} .p02{--ac:#7c3aed;--ar:124,58,237}
+.p03{--ac:#00ff88;--ar:0,255,136} .p04{--ac:#ff2d6b;--ar:255,45,107}
+.p05{--ac:#ffd700;--ar:255,215,0} .p06{--ac:#00b4d8;--ar:0,180,216}
+.p07{--ac:#ff6b35;--ar:255,107,53} .p08{--ac:#a855f7;--ar:168,85,247}
+.p09{--ac:#94a3b8;--ar:148,163,184} .p10{--ac:#ff4040;--ar:255,64,64}
+
+/* â”€â”€ SALARY â”€â”€ */
+.salbars{display:flex;flex-direction:column;gap:16px;max-width:860px;margin:0 auto}
+.salrow{display:grid;grid-template-columns:170px 1fr 160px;align-items:center;gap:14px;opacity:0;transform:translateX(-24px);transition:opacity .6s ease,transform .6s ease}
+.salrow.vis{opacity:1;transform:translateX(0)}
+.sallabel{font-size:clamp(.78rem,1.5vw,.9rem);font-weight:600;text-align:right;color:var(--white)}
+.saltrack{height:40px;background:rgba(255,255,255,.04);border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.05)}
+.salfill{height:100%;border-radius:8px;display:flex;align-items:center;padding-left:12px;font-size:.72rem;font-weight:700;color:rgba(0,0,0,.85);width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;white-space:nowrap}
+.salfill::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:shim 2.5s ease infinite}
+@keyframes shim{to{left:200%}}
+.salamount{font-size:clamp(.72rem,1.3vw,.85rem);font-weight:700;font-family:'JetBrains Mono',monospace}
+
+/* â”€â”€ COMPANIES â”€â”€ */
+.cogrid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.cocard{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:26px 16px;text-align:center;position:relative;overflow:hidden;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease,border-color .3s,box-shadow .3s}
+.cocard.vis{opacity:1;transform:translateY(0)}
+.cocard:hover{transform:translateY(-7px)!important;border-color:rgba(var(--cr),.5);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 28px rgba(var(--cr),.15)}
+.coglow{position:absolute;width:100px;height:100px;border-radius:50%;top:-30px;right:-30px;opacity:.1;background:radial-gradient(circle,var(--cc),transparent);pointer-events:none;transition:opacity .4s}
+.cocard:hover .coglow{opacity:.22}
+.corank{font-family:'Orbitron',sans-serif;font-size:.55rem;letter-spacing:.16em;color:var(--dim);margin-bottom:10px}
+.coname{font-family:'Orbitron',sans-serif;font-size:clamp(.72rem,1.3vw,.88rem);font-weight:700;margin-bottom:6px;line-height:1.3}
+.corole{font-size:.72rem;color:var(--dim)}
+
+/* â”€â”€ RULES â”€â”€ */
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rcard{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px 20px;position:relative;overflow:hidden;opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease,border-color .3s,box-shadow .3s}
+.rcard.vis{opacity:1;transform:translateY(0)}
+.rcard:hover{border-color:rgba(0,255,229,.3);box-shadow:0 10px 40px rgba(0,0,0,.4),0 0 18px rgba(0,255,229,.08);transform:translateY(-3px)!important}
+.rico{font-size:1.8rem;margin-bottom:10px;display:block}
+.rtitle{font-family:'Orbitron',sans-serif;font-size:.78rem;font-weight:700;color:var(--cyan);margin-bottom:7px;letter-spacing:.03em}
+.rdesc{font-size:.85rem;color:rgba(238,242,255,.45);line-height:1.6}
+
+/* â”€â”€ TOAST â”€â”€ */
+.toast{position:fixed;bottom:24px;right:24px;z-index:9000;background:rgba(8,20,40,.97);border:1px solid rgba(0,255,229,.28);border-radius:14px;padding:14px 20px;display:flex;align-items:center;gap:12px;transform:translateY(120px);opacity:0;transition:all .4s cubic-bezier(.4,0,.2,1);box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 20px rgba(0,255,229,.12);max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
+.ticon{font-size:1.4rem;flex-shrink:0}
+.ttxt{font-size:.88rem;font-weight:600;color:var(--white)}
+.tsub{font-size:.72rem;color:var(--dim);margin-top:2px}
+
+/* â”€â”€ CONFETTI â”€â”€ */
+.conf{position:fixed;pointer-events:none;z-index:9999;width:7px;height:7px;border-radius:2px;animation:cfall 2s ease-out forwards}
+@keyframes cfall{0%{transform:translateY(-10px) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+
+/* â”€â”€ TICKER â”€â”€ */
+.ticker-outer{overflow:hidden;background:rgba(0,255,229,.03);border-top:1px solid rgba(0,255,229,.08);border-bottom:1px solid rgba(0,255,229,.08);padding:11px 0;margin:70px 0 0}
+.ticker-inner{display:flex;white-space:nowrap;animation:tick 28s linear infinite;font-size:.75rem;font-weight:700;letter-spacing:.12em;color:var(--cyan);text-transform:uppercase}
+.ticker-inner span{margin-right:50px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* â”€â”€ FOOTER â”€â”€ */
+footer{background:rgba(5,12,24,.97);border-top:1px solid rgba(255,255,255,.05)}
+.footer-grid{max-width:1300px;margin:0 auto;padding:50px 36px 36px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px}
+.fbrand .logo{display:block;font-size:1.1rem;margin-bottom:12px}
+.fbrand p{font-size:.82rem;color:var(--dim);line-height:1.7;max-width:240px}
+.fcol h4{font-family:'Orbitron',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;color:var(--cyan);text-transform:uppercase;margin-bottom:14px}
+.fcol ul{list-style:none}
+.fcol li{margin-bottom:9px;font-size:.82rem;color:var(--dim);display:flex;align-items:center;gap:7px}
+.fbot{max-width:1300px;margin:0 auto;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.fbot p{font-size:.72rem;color:var(--dim)}
+.fbot .made{font-size:.72rem;color:var(--dim)}
+.fbot .made em{color:var(--cyan);font-style:normal}
+
+/* â”€â”€ ANIMATIONS â”€â”€ */
+@keyframes fup{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   RESPONSIVE
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+@media(max-width:1024px){
+  header{padding:0 24px}
+  nav{gap:20px}
+  nav a{font-size:.72rem}
+  .hptrack{width:70px}
+  .cogrid{grid-template-columns:repeat(3,1fr)}
+}
+
+@media(max-width:768px){
+  body{cursor:auto}
+  .cursor,.cursor-ring{display:none}
+  header{padding:0 18px;height:58px}
+  nav{display:none}
+  .hprog{display:none}
+  .hamburger{display:flex}
+  .mobile-menu{top:58px}
+
+  h1{font-size:clamp(2.4rem,12vw,4rem)}
+  .hero{padding:86px 16px 50px}
+  .hquote{font-size:.85rem;padding-left:14px}
+
+  .stats{flex-direction:row}
+  .stat{min-width:calc(33.33% - 1px);padding:16px 10px}
+  .stat:nth-child(4)::after,.stat:nth-child(5)::after{display:none}
+
+  .phases-grid{grid-template-columns:1fr;gap:18px}
+
+  .igrid{grid-template-columns:1fr}
+
+  .sechdr{margin:56px 0 36px}
+
+  .salrow{grid-template-columns:1fr;gap:6px}
+  .sallabel{text-align:left;font-size:.82rem}
+  .salamount{font-size:.78rem}
+
+  .cogrid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .cocard{padding:20px 12px}
+
+  .rgrid{grid-template-columns:1fr 1fr;gap:14px}
+  .rcard{padding:20px 16px}
+  .rdesc{font-size:.8rem}
+
+  .footer-grid{grid-template-columns:1fr;gap:30px;padding:36px 24px 28px}
+  .fbrand p{max-width:100%}
+  .fbot{padding:14px 24px;flex-direction:column;align-items:flex-start;gap:6px}
+
+  .wrap{padding:0 16px}
+}
+
+@media(max-width:480px){
+  h1{font-size:clamp(2rem,11vw,3rem)}
+  .badge{font-size:.62rem;padding:6px 16px}
+  .hsub{font-size:.85rem}
+  .hquote{font-size:.8rem}
+  .stat{min-width:calc(33.33% - 1px)}
+  .sv{font-size:1rem}
+  .sl{font-size:.55rem}
+  .pring-svg{width:140px;height:140px}
+  .rpct{font-size:1.5rem}
+
+  .phcard{padding:18px}
+  .ctitle{font-size:.88rem}
+  .igrid{grid-template-columns:1fr}
+  .irow{font-size:.78rem}
+
+  .salrow{grid-template-columns:1fr}
+  .salfill{font-size:.65rem;padding-left:8px}
+  .saltrack{height:36px}
+
+  .cogrid{grid-template-columns:1fr 1fr;gap:10px}
+  .coname{font-size:.72rem}
+  .corole{font-size:.65rem}
+
+  .rgrid{grid-template-columns:1fr;gap:12px}
+
+  .ticker-inner{font-size:.68rem}
+  .ticker-inner span{margin-right:36px}
+
+  .footer-grid{padding:28px 16px 20px}
+  .fbot{padding:12px 16px}
+
+  .toast{max-width:calc(100vw - 32px);right:16px;bottom:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
+<canvas id="bgCanvas"></canvas>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">ROADMAP.DEV</div>
+  <nav>
+    <a href="#phases">Phases</a>
+    <a href="#salary">Salary</a>
+    <a href="#companies">Companies</a>
+    <a href="#rules">Rules</a>
+  </nav>
+  <div class="hprog">
+    <span class="hplabel">Progress</span>
+    <div class="hptrack"><div class="hpfill" id="hpf"></div></div>
+    <span id="hpct">0%</span>
+  </div>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-menu" id="mmenu">
+  <a href="#phases" onclick="closeMenu()">Phases</a>
+  <a href="#salary" onclick="closeMenu()">Salary</a>
+  <a href="#companies" onclick="closeMenu()">Companies</a>
+  <a href="#rules" onclick="closeMenu()">Rules</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hring" style="width:450px;height:450px;transform:translate(-50%,-50%);animation-duration:22s"></div>
+  <div class="hring" style="width:750px;height:750px;transform:translate(-50%,-50%);animation-duration:36s;animation-direction:reverse"></div>
+  <div class="hring" style="width:1050px;height:1050px;transform:translate(-50%,-50%);animation-duration:55s"></div>
+  <div class="wrap" style="display:flex;flex-direction:column;align-items:center;width:100%">
+    <div class="badge"><span class="bdot"></span>Full-Stack â†’ AI Engineer Â· Islamabad Market</div>
+    <h1><span class="t1">CAREER</span><span class="t2">ROADMAP</span></h1>
+    <p class="hsub">2025 â†’ 2027 &nbsp;Â·&nbsp; 10 Phases &nbsp;Â·&nbsp; 30 Months &nbsp;Â·&nbsp; 500K+ PKR</p>
+    <blockquote class="hquote">"A goal without a plan is just a wish.<br>Work smart, stay consistent, achieve greatness."</blockquote>
+    <div class="stats">
+      <div class="stat"><span class="sv">JUN 25</span><span class="sl">Start</span></div>
+      <div class="stat"><span class="sv">10</span><span class="sl">Phases</span></div>
+      <div class="stat"><span class="sv">30</span><span class="sl">Months</span></div>
+      <div class="stat"><span class="sv">2 AWS</span><span class="sl">Certs</span></div>
+      <div class="stat"><span class="sv">500K+</span><span class="sl">PKR</span></div>
+    </div>
+    <div class="pring-sec">
+      <div class="pring-wrap">
+        <svg class="pring-svg" width="160" height="160" viewBox="0 0 160 160">
+          <defs>
+            <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#00ffe5"/>
+              <stop offset="100%" style="stop-color:#7c3aed"/>
+            </linearGradient>
+          </defs>
+          <circle class="rtrack" cx="80" cy="80" r="67"/>
+          <circle class="rfill" id="ring" cx="80" cy="80" r="67" stroke-dasharray="421" stroke-dashoffset="421"/>
+        </svg>
+        <div class="rcenter">
+          <div class="rpct" id="rpct">0%</div>
+          <div class="rlbl">Complete</div>
+        </div>
+      </div>
+    </div>
+    <div class="sarr"><span>Scroll Down</span><div class="sarrow"></div></div>
+  </div>
+</section>
+
+<!-- PHASES -->
+<section id="phases">
+  <div class="wrap">
+    <div class="sechdr">
+      <div class="seceye">Journey Phases</div>
+      <div class="sectitle">The 10-Phase Blueprint</div>
+    </div>
+    <div class="phases-grid" id="pgrid"></div>
+  </div>
+</section>
+
+<!-- SALARY -->
+<section id="salary">
+  <div class="wrap">
+    <div class="sechdr">
+      <div class="seceye">Financial Growth</div>
+      <div class="sectitle">Salary Progression</div>
+    </div>
+    <div class="salbars">
+      <div class="salrow"><span class="sallabel">Fresher 2025</span><div class="saltrack"><div class="salfill" style="background:linear-gradient(90deg,#4a5568,#718096)" data-w="15">50Kâ€“80K</div></div><span class="salamount" style="color:#94a3b8">50Kâ€“80K PKR</span></div>
+      <div class="salrow"><span class="sallabel">Junior Dev 2026</span><div class="saltrack"><div class="salfill" style="background:linear-gradient(90deg,#00b4d8,#0077b6)" data-w="32">80Kâ€“150K</div></div><span class="salamount" style="color:#00b4d8">80Kâ€“150K PKR</span></div>
+      <div class="salrow"><span class="sallabel">Mid + Freelance</span><div class="saltrack"><div class="salfill" style="background:linear-gradient(90deg,#00ffe5,#00b4d8)" data-w="52">150Kâ€“250K</div></div><span class="salamount" style="color:#00ffe5">150Kâ€“250K PKR</span></div>
+      <div class="salrow"><span class="sallabel">Senior Dev 2027</span><div class="saltrack"><div class="salfill" style="background:linear-gradient(90deg,#7c3aed,#a855f7)" data-w="76">250Kâ€“400K</div></div><span class="salamount" style="color:#a855f7">250Kâ€“400K PKR</span></div>
+      <div class="salrow"><span class="sallabel">ðŸŽ¯ Target 2027+</span><div class="saltrack"><div class="salfill" style="background:linear-gradient(90deg,#ffd700,#ff6b35)" data-w="100">400Kâ€“500K+</div></div><span class="salamount" style="color:#ffd700">400Kâ€“500K+ PKR</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANIES -->
+<section id="companies">
+  <div class="wrap">
+    <div class="sechdr">
+      <div class="seceye">Dream Destinations</div>
+      <div class="sectitle">Target Companies</div>
+    </div>
+    <div class="cogrid">
+      <div class="cocard" style="--cc:#00b4d8;--cr:0,180,216"><div class="coglow"></div><div class="corank">TARGET #1</div><div class="coname" style="color:#00b4d8">Zones Inc</div><div class="corole">Enterprise IT Solutions</div></div>
+      <div class="cocard" style="--cc:#7c3aed;--cr:124,58,237"><div class="coglow"></div><div class="corank">TARGET #2</div><div class="coname" style="color:#7c3aed">Contour Software</div><div class="corole">Software Development</div></div>
+      <div class="cocard" style="--cc:#00ff88;--cr:0,255,136"><div class="coglow"></div><div class="corank">TARGET #3</div><div class="coname" style="color:#00ff88">10Pearls</div><div class="corole">Digital Innovation</div></div>
+      <div class="cocard" style="--cc:#ffd700;--cr:255,215,0"><div class="coglow"></div><div class="corank">TARGET #4</div><div class="coname" style="color:#ffd700">Arbisoft</div><div class="corole">Tech Products</div></div>
+      <div class="cocard" style="--cc:#ff2d6b;--cr:255,45,107"><div class="coglow"></div><div class="corank">TARGET #5</div><div class="coname" style="color:#ff2d6b">Devsinc</div><div class="corole">Dev Shop</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section id="rules">
+  <div class="wrap">
+    <div class="sechdr">
+      <div class="seceye">Success Principles</div>
+      <div class="sectitle">Golden Rules</div>
+    </div>
+    <div class="rgrid">
+      <div class="rcard"><span class="rico">â°</span><div class="rtitle">Daily Coding</div><div class="rdesc">Code minimum 3â€“4 hours every single day without exception.</div></div>
+      <div class="rcard"><span class="rico">ðŸ“š</span><div class="rtitle">Document Everything</div><div class="rdesc">Write notes in Notion after every learning session.</div></div>
+      <div class="rcard"><span class="rico">ðŸ§ </span><div class="rtitle">LeetCode Daily</div><div class="rdesc">Solve at least one LeetCode problem every single day.</div></div>
+      <div class="rcard"><span class="rico">ðŸŒ</span><div class="rtitle">Build in Public</div><div class="rdesc">Share progress and projects on LinkedIn consistently.</div></div>
+      <div class="rcard"><span class="rico">ðŸ”</span><div class="rtitle">Weekly Review</div><div class="rdesc">Review, revise, and plan every Sunday without fail.</div></div>
+      <div class="rcard"><span class="rico">ðŸ¤</span><div class="rtitle">Network Early</div><div class="rdesc">Connect with people before you actually need help.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-outer">
+  <div class="ticker-inner">
+    <span>ðŸŽ¯ Code Daily</span><span>ðŸ“š Learn Always</span><span>ðŸš€ Build Projects</span><span>ðŸŒ Share Online</span><span>ðŸ’° 500K+ PKR Goal</span><span>ðŸ† Zones Inc</span><span>âš¡ 10Pearls</span><span>ðŸ”¥ Arbisoft</span><span>âœ¨ Devsinc</span><span>ðŸ’Ž Contour Software</span>
+    <span>ðŸŽ¯ Code Daily</span><span>ðŸ“š Learn Always</span><span>ðŸš€ Build Projects</span><span>ðŸŒ Share Online</span><span>ðŸ’° 500K+ PKR Goal</span><span>ðŸ† Zones Inc</span><span>âš¡ 10Pearls</span><span>ðŸ”¥ Arbisoft</span><span>âœ¨ Devsinc</span><span>ðŸ’Ž Contour Software</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="fbrand">
+      <span class="logo">ROADMAP.DEV</span>
+      <p>From Zero to 500K PKR. A complete 30-month blueprint to become a Full-Stack + AI Engineer in Islamabad's top tech companies.</p>
+    </div>
+    <div class="fcol">
+      <h4>Early Phases</h4>
+      <ul>
+        <li>ðŸ Python Basics</li>
+        <li>âš¡ MERN + Next.js</li>
+        <li>ðŸ”¨ MERN Projects</li>
+        <li>ðŸŒ Branding + Freelancing</li>
+        <li>ðŸ§  DSA + LeetCode</li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Advanced Phases</h4>
+      <ul>
+        <li>ðŸ¤– AI Integration</li>
+        <li>â˜ï¸ Cloud + DevOps</li>
+        <li>ðŸ—ï¸ System Design</li>
+        <li>ðŸ“– CS Fundamentals</li>
+        <li>ðŸš€ Final Sprint</li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <p>Â© 2025 Career Roadmap Â· Islamabad, Pakistan</p>
+    <div class="made">Built with <em>dedication</em> Â· Jun 2025 â†’ Dec 2027</div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="ticon" id="ticon">ðŸŽ‰</span>
+  <div><div class="ttxt" id="ttxt">Phase Complete!</div><div class="tsub" id="tsub">Keep going!</div></div>
+</div>
+
+<script>
+// â”€â”€ DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+const phases=[
+  {num:"01",title:"Python Basics",period:"Junâ€“Jul 2025",dur:"2 Months",col:"p01",
+   items:["Variables & Data Types","Control Flow & Loops","Functions & Modules","OOP Principles","File I/O & Error Handling","NumPy & Pandas Basics"]},
+  {num:"02",title:"MERN + Next.js",period:"Aug 2025â€“Jan 2026",dur:"6 Months",col:"p02",done:true,
+   items:["MongoDB & Mongoose","Express.js REST APIs","React.js + Hooks + Redux","Node.js Architecture","Next.js SSR / SSG / ISR","JWT + OAuth Auth"]},
+  {num:"03",title:"MERN Projects",period:"Febâ€“Mar 2026",dur:"2 Months",col:"p03",
+   items:["E-Commerce Full-Stack App","Real-Time Chat (Socket.io)","Portfolio + Blog Platform","REST + GraphQL Practice","CI/CD Pipeline Setup","Deploy Vercel + Railway"]},
+  {num:"04",title:"Professional Branding",period:"Aprâ€“May 2026",dur:"2 Months",col:"p04",
+   items:["LinkedIn Optimization","GitHub Portfolio + README","Resume ATS Optimization","Upwork Profile + Proposals","Fiverr Gig Creation","Personal Brand Strategy"]},
+  {num:"05",title:"Python DSA + LeetCode",period:"Junâ€“Sep 2026",dur:"4 Months",col:"p05",
+   items:["Arrays Â· Strings Â· Hashing","Linked Lists Â· Stacks Â· Queues","Trees Â· Graphs Â· Heaps","Dynamic Programming","Backtracking & Greedy","150+ LeetCode Problems"]},
+  {num:"06",title:"AI Integration",period:"Octâ€“Nov 2026",dur:"2 Months",col:"p06",
+   items:["OpenAI API + Prompting","LangChain Chains & Agents","RAG Pipeline (Vector DB)","FastAPI + AI Routes","Pinecone / ChromaDB","AI SaaS App Deployment"]},
+  {num:"07",title:"Cloud + DevOps",period:"Dec 2026â€“Mar 2027",dur:"4 Months",col:"p07",
+   items:["AWS CCP Certification","AWS SAA Certification","Docker + Compose","Kubernetes (K8s) Basics","GitHub Actions CI/CD","Terraform + IaC"]},
+  {num:"08",title:"System Design",period:"Aprâ€“May 2027",dur:"2 Months",col:"p08",
+   items:["HLD: Scalability Patterns","LLD: Design Patterns","CAP Theorem + DB Theory","Caching: Redis + CDN","Message Queues: Kafka","Netflix Â· Uber Case Studies"]},
+  {num:"09",title:"CS Fundamentals + GK",period:"Junâ€“Aug 2027",dur:"3 Months",col:"p09",
+   items:["Operating Systems (OS)","Computer Networking","OOP Deep Dive","DBMS + SQL Queries","General Knowledge MCQs","Pakistan Tech Sector GK"]},
+  {num:"10",title:"Final Sprint Revision",period:"Sepâ€“Dec 2027",dur:"4 Months",col:"p10",
+   items:["Full DSA Revision","Mock Interviews (Daily)","System Design Revision","Behavioral + HR Prep","Company-Specific Research","Offer Negotiation Strategy"]},
+];
+
+// â”€â”€ STATE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+let state=JSON.parse(localStorage.getItem('rmstate2')||'{}');
+if(!state.phases)state.phases={};
+phases.forEach(p=>{
+  if(!state.phases[p.num])state.phases[p.num]={done:!!p.done,items:{}};
+  if(p.done&&!state.phases[p.num].done)state.phases[p.num].done=true;
+});
+function save(){localStorage.setItem('rmstate2',JSON.stringify(state))}
+
+// â”€â”€ CURSOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+if(!('ontouchstart' in window)){
+  const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+  (function animR(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(animR)})();
+}else{document.body.classList.add('touch-device')}
+
+// â”€â”€ HAMBURGER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+const ham=document.getElementById('ham'),mmenu=document.getElementById('mmenu');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mmenu.classList.toggle('open')});
+function closeMenu(){ham.classList.remove('open');mmenu.classList.remove('open')}
+document.addEventListener('click',e=>{if(!ham.contains(e.target)&&!mmenu.contains(e.target))closeMenu()});
+
+// â”€â”€ PARTICLES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+const canvas=document.getElementById('bgCanvas'),ctx=canvas.getContext('2d');
+let cW,cH;
+function resize(){cW=canvas.width=window.innerWidth;cH=canvas.height=window.innerHeight}
+resize();window.addEventListener('resize',resize);
+const pts=Array.from({length:90},()=>({x:Math.random()*9999,y:Math.random()*9999,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:Math.random()*1.4+.3,a:Math.random()*.6+.1}));
+(function drawC(){
+  ctx.clearRect(0,0,cW,cH);
+  const t=Date.now()/1000;
+  ctx.strokeStyle='rgba(0,255,229,0.02)';ctx.lineWidth=1;
+  for(let x=0;x<cW;x+=100){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,cH);ctx.stroke()}
+  for(let y=0;y<cH;y+=100){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(cW,y);ctx.stroke()}
+  pts.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0)p.x=cW;if(p.x>cW)p.x=0;
+    if(p.y<0)p.y=cH;if(p.y>cH)p.y=0;
+    ctx.beginPath();ctx.arc(p.x%cW,p.y%cH,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(0,255,229,${p.a*(0.5+0.5*Math.sin(t+p.x*.01))})`;ctx.fill();
+  });
+  requestAnimationFrame(drawC);
+})();
+
+// â”€â”€ BUILD PHASES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+const pgrid=document.getElementById('pgrid');
+phases.forEach((p,i)=>{
+  const st=state.phases[p.num];
+  const card=document.createElement('div');
+  card.className=`phcard ${p.col} ${st.done?'done':''}`;
+  card.id=`ph${p.num}`;
+  card.style.transitionDelay=(i*.07)+'s';
+  card.innerHTML=`
+    <div class="phcard-top">
+      <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">
+        <div class="ph-num-circle">${p.num}</div>
+        <div class="ph-num-badge">PHASE ${p.num} Â· ${p.dur}</div>
+      </div>
+      <input type="checkbox" class="phchk" data-phase="${p.num}" title="Mark phase complete" ${st.done?'checked':''}>
+    </div>
+    <div class="ctitle">${p.title}</div>
+    <div class="cmeta">
+      <span class="mbadge">ðŸ“… ${p.period}</span>
+      <span class="mbadge">${p.dur}</span>
+      ${st.done?'<span class="mbadge dbadge">âœ… Done</span>':''}
+    </div>
+    <div class="igrid">
+      ${p.items.map((it,ii)=>`
+        <label class="irow ${st.items[ii]?'idone':''}">
+          <input type="checkbox" class="ichk" data-phase="${p.num}" data-item="${ii}" ${st.items[ii]?'checked':''}>
+          <span class="itxt">${it}</span>
+        </label>`).join('')}
+    </div>`;
+  pgrid.appendChild(card);
+});
+
+// â”€â”€ TOAST + CONFETTI â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+let toastT;
+function showToast(icon,txt,sub){
+  const t=document.getElementById('toast');
+  document.getElementById('ticon').textContent=icon;
+  document.getElementById('ttxt').textContent=txt;
+  document.getElementById('tsub').textContent=sub;
+  t.classList.add('show');
+  clearTimeout(toastT);
+  toastT=setTimeout(()=>t.classList.remove('show'),3500);
+}
+function confetti(x,y){
+  const cols=['#00ffe5','#7c3aed','#ff2d6b','#ffd700','#00ff88','#ff6b35'];
+  for(let i=0;i<16;i++){
+    const el=document.createElement('div');
+    el.className='conf';
+    el.style.cssText=`left:${x+Math.random()*60-30}px;top:${y}px;background:${cols[Math.floor(Math.random()*cols.length)]};animation-delay:${Math.random()*.3}s;animation-duration:${1.5+Math.random()}s`;
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),2500);
+  }
+}
+
+// â”€â”€ CHECKBOX EVENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+document.addEventListener('change',e=>{
+  if(e.target.classList.contains('phchk')){
+    const ph=e.target.dataset.phase;
+    state.phases[ph].done=e.target.checked;save();
+    const card=document.getElementById('ph'+ph);
+    const circle=card.querySelector('.ph-num-circle');
+    const meta=card.querySelector('.cmeta');
+    if(e.target.checked){
+      card.classList.add('done');circle.classList.add('done');
+      if(!meta.querySelector('.dbadge'))meta.insertAdjacentHTML('beforeend','<span class="mbadge dbadge">âœ… Done</span>');
+      const r=e.target.getBoundingClientRect();
+      confetti(r.left,r.top);
+      showToast('ðŸŽ‰','Phase '+ph+' Complete!',phases.find(p=>p.num===ph).title+' â€” Amazing!');
+    }else{
+      card.classList.remove('done');circle.classList.remove('done');
+      meta.querySelector('.dbadge')?.remove();
+    }
+    updateProgress();
+  }
+  if(e.target.classList.contains('ichk')){
+    const ph=e.target.dataset.phase,it=e.target.dataset.item;
+    state.phases[ph].items[it]=e.target.checked;save();
+    const row=e.target.closest('.irow');
+    row.classList.toggle('idone',e.target.checked);
+    if(e.target.checked)showToast('âš¡','Sub-task done!',row.querySelector('.itxt').textContent);
+    updateProgress();
+  }
+});
+
+// â”€â”€ PROGRESS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function updateProgress(){
+  let total=0,done=0,dp=0;
+  phases.forEach(p=>{
+    if(state.phases[p.num].done)dp++;
+    p.items.forEach((_,ii)=>{total++;if(state.phases[p.num].items[ii])done++;});
+  });
+  const pct=Math.round((dp/phases.length*.5+done/total*.5)*100);
+  document.getElementById('hpf').style.width=pct+'%';
+  document.getElementById('hpct').textContent=pct+'%';
+  const circ=421;
+  document.getElementById('ring').style.strokeDashoffset=circ-(circ*pct/100);
+  document.getElementById('rpct').textContent=pct+'%';
+}
+updateProgress();
+
+// â”€â”€ SCROLL OBSERVER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      if(e.target.classList.contains('salrow')){
+        const f=e.target.querySelector('.salfill');
+        setTimeout(()=>f.style.width=f.dataset.w+'%',120);
+      }
+    }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.phcard,.salrow,.cocard,.rcard').forEach(el=>obs.observe(el));
+document.querySelectorAll('.salrow').forEach((el,i)=>el.style.transitionDelay=(i*.1)+'s');
+document.querySelectorAll('.cocard').forEach((el,i)=>el.style.transitionDelay=(i*.08)+'s');
+document.querySelectorAll('.rcard').forEach((el,i)=>el.style.transitionDelay=(i*.07)+'s');
+</script>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(r => console.log('SW Ready!'))
+      .catch(e => console.log('SW Failed', e));
+  });
+}
+</script>
+</body>
+</html>
