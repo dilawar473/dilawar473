@@ -1,6 +1,6 @@
 # Hi there, I am Muhammad Dilawar Khan 👋
 
-<img align="right" alt="Coding" width="400" src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif">
+<img align="right" alt="Coding" width="400" src="https://cdn.dribbble.com/users/1059583/screenshots/4171906/coding-freak.gif">
 
 ### 🚀 Full Stack Developer from Pakistan 🇵🇰
 
@@ -66,7 +66,7 @@
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=dilawar473&show_icons=true&theme=tokyonight&hide_border=true" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=dilawar473&theme=tokyonight&hide_border=true" width="48%" />
+  <img src="https://streak-stats.demolab.com/?user=dilawar473&theme=tokyonight&hide_border=true" width="48%" />
 </p>
 
 <p align="center">
@@ -78,7 +78,7 @@
 ## 🏆 GitHub Trophies
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=dilawar473&theme=tokyonight&no-frame=true&row=1&column=7" />
+  <img src="https://github-trophies.vercel.app/?username=dilawar473&theme=tokyonight&no-frame=true&row=1&column=7" />
 </p>
 
 ---
