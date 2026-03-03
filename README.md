@@ -5,10 +5,10 @@
 ### 🚀 Full Stack Developer from Pakistan (AJK)
 
 - 🔭 Currently working on **Invoice Tracker & Clinic Management System**
-- 🌱 Currently learning **Next.js & Advanced React**
+- 🌱 Currently learning **Ai intergration and System Design**
 - 👨‍💻 All my projects: [dilawar473.netlify.app](https://dilawar473.netlify.app)
 - 📫 Reach me: **mdilawarkhan473@gmail.com**
-- ⚡ Fun fact: **I turn chai ☕ into code!**
+- ⚡ Fun fact: **Consistency matters more to me than motivation!**
 
 ---
 ## 🌐 Connect With Me
